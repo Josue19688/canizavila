@@ -5,6 +5,7 @@ import { Home } from "./views/public/Home";
 import { Nosotros } from "./views/public/Nosotros";
 import { Servicios } from "./views/public/Servicios";
 import { Blog } from "./views/public/Blog";
+import { Cafecito } from "./views/public/Cafecito";
 
 
 
@@ -18,6 +19,7 @@ export default function Router() {
                     <Route path="/" element={<Home/>} index />
                     <Route path="/nosotros" element={<Nosotros/>} />
                     <Route path="/servicios" element={<Servicios/>} />
+                    <Route path="/cafecito" element={<Cafecito/>} />
                     <Route path="/blog" element={<Blog/>} />
                 </Route>
             </Routes>

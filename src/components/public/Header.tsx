@@ -29,6 +29,9 @@ export const Header = () => {
           <Link to='/servicios' className="hover:text-orange-500">
             Servicios
           </Link>
+          <Link to='/cafecito' className="hover:text-orange-500">
+            Cafecito Laboral
+          </Link>
           <Link to='/blog' className="hover:text-orange-500">
             Blog
           </Link>
@@ -66,6 +69,9 @@ export const Header = () => {
               <Link to='/servicios' className="hover:text-neutral-200">
                Servicios
               </Link>
+              <Link to='/cafecito' className="hover:text-neutral-200">
+            Cafecito Laboral
+          </Link>
               <Link to='/blog' className="hover:text-neutral-200">
                Blog
               </Link>
