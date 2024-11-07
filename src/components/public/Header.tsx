@@ -42,7 +42,7 @@ export const Header = () => {
 
          {/* HAMBURGER ICON FOR MOBILE */}
         <div className="md:hidden ">
-          <button onClick={toggelMenu} className="text-white focus:outline-none"
+          <button onClick={toggelMenu} className="text-black focus:outline-none"
           aria-label={isOpen ? "Close Menu":"Open Menu"}>
               {isOpen ? <RiCloseFill/> : <RiMenu3Line/>}
           </button>
@@ -60,9 +60,9 @@ export const Header = () => {
               <Link to='/' className="hover:text-neutral-200">
                 Inicio
               </Link>
-              {/* <Link to='/nosotros' className="hover:text-neutral-200">
+              <Link to='/nosotros' className="hover:text-neutral-200">
                 Nosotros
-              </Link> */}
+              </Link>
               <Link to='/servicios' className="hover:text-neutral-200">
                Servicios
               </Link>
