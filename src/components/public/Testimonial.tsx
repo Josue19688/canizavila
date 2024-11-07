@@ -2,7 +2,7 @@
 
 
 import { motion} from 'framer-motion'
-import user from "/c.png";
+import user from "/c.jpg";
 
 
 const TESTIMONIALS_CONTENT = {

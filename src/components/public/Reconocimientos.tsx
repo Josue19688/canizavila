@@ -14,13 +14,13 @@ const KEY_FEATURES_CONTENT = {
         },
         {
           id: 2,
-          icon: <img src="/r2.png" className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-full object-cover" />,
+          icon: <img src="/r.png" className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-full object-cover" />,
           title: "Asesoría Confiable",
           description: "Proin ac lacus at metus ultrices ullamcorper.",
         },
         {
           id: 3,
-          icon: <img src="/r3.png" className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-full object-cover" />,
+          icon: <img src="/r.png" className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-full object-cover" />,
           title: "Atención Personalizada",
           description: "Vestibulum ante ipsum primis in faucibus orci luctus.",
         },
@@ -47,16 +47,7 @@ export const Reconocimientos = () => {
         }
       }
     
-      // const featureVariants ={
-      //   hidden:{opacity:0},
-      //   visible:{
-      //       opacity:1, 
-      //       y:0,
-      //       transition:{
-      //           duration:0.5,
-      //       }
-      //   }
-      // }
+    
   return (
     <>
     <section className="bg-white">
