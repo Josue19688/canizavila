@@ -5,60 +5,59 @@ import { Valores } from "@/components/public/Valores"
 export const Nosotros = () => {
   return (
     <>
-    <section className="pt-20  lg:pt-36 min-h-screen bg-no-repeat bg-cover bg-center"
+   <section className="pt-20 lg:pt-36 min-h-screen bg-no-repeat bg-cover bg-center"
      style={{ backgroundImage: "url('/c.png')" }}
-    >
-         {/* Degradado superpuesto */}
-        <div className="absolute inset-0 bg-gradient-to-b from-orange-100/30 to-black/20"></div>
-            <div className="elative z-10 py-2 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6">
-                <div className="mx-auto max-w-screen-sm">
-                    <div className="flex justify-center">
-                        <img src="/logo.png" className="h-48" alt="canizavila" />
-                        </div>
-                </div> 
-                <div className="grid mb-8 lg:mb-2 lg:grid-cols-2">
-                    <figure className="flex flex-col justify-center items-center p-6 text-center md:p-12  ">
-                        <blockquote className="mx-auto mb-8 max-w-2xl text-gray-500 dark:text-gray-400">
-                            <h3 className="text-lg font-semibold text-gray-600 dark:text-white">MISION</h3>
-                            <p className="my-4">
-                            Nuestra misión es proporcionar a las empresas una asesoría laboral de alto nivel, basada en 
-                            la experiencia y el conocimiento profundo del Derecho Laboral y la Seguridad Social. 
-                            Nos dedicamos a prevenir y resolver conflictos laborales de manera estratégica y eficiente, 
-                            contribuyendo a la estabilidad y el éxito de nuestros clientes. Con un compromiso firme hacia la enseñanza y la interpretación del marco legal, 
-                            capacitamos a líderes y profesionales para una gestión sólida y ética del talento humano.
-
-                            </p>
-                            
-                        </blockquote>
-                            
-                    </figure>
-                    <figure className="flex flex-col justify-center items-center p-6 text-center md:p-12  ">
-                        <blockquote className="mx-auto mb-8 max-w-2xl text-gray-500 dark:text-gray-400">
-                            <h3 className="text-lg font-semibold text-gray-600 dark:text-white">VISION</h3>
-                            <p className="my-4">
-                            Ser reconocidos como el bufete líder en asesoría y soluciones laborales empresariales, distinguidos por 
-                            nuestra excelencia en la práctica del Derecho Laboral y nuestra capacidad para adaptarnos a las demandas
-                            de un entorno en constante cambio. Aspiramos a consolidarnos como referentes en la formación de profesionales
-                                en el ámbito laboral, promoviendo un entorno de justicia, 
-                            integridad y colaboración que fortalezca las relaciones laborales en todos los niveles empresariales.
-                            </p>
-                            
-                        </blockquote>
-                        
-                    </figure>
-                </div>
+>
+    {/* Degradado superpuesto */}
+    <div className="absolute inset-0 bg-gradient-to-b from-orange-100/30 to-black/20"></div>
+    <div className="relative z-10 py-2 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6">
+        <div className="mx-auto max-w-screen-sm">
+            <div className="flex justify-center">
+                <img src="/logo.png" className="h-48" alt="canizavila" />
             </div>
-            <div className="mx-auto mb-8 p-6 max-w-screen-sm lg:mb-16">
-                    
-                    <p className="font-light text-gray-800 sm:text-xl dark:text-gray-400">
-                    Somos un Bufete Jurídico constituido en el año de 1,990, dedicado a la Asesoría Laboral empresarial; 
-                    a la Prevención y resolución de confictos laborales, al estudio, enseñanza, 
-                    interpretación y aplicación del Derecho Laboral y de la Seguridad Social; facilitamos la
-                    capacitación o formación profesional en la gestión del talento humano.
+        </div> 
+        <div className="grid mb-2 lg:mb-4 lg:grid-cols-2"> {/* Aumenté el margen de Misión/Visión para reducir espacio */}
+            <figure className="flex flex-col justify-center items-center p-6 text-center md:p-12">
+                <blockquote className="mx-auto mb-2 max-w-2xl text-gray-500 dark:text-gray-400"> {/* Reducido más margen inferior */}
+                    <h3 className="text-lg font-semibold text-gray-600">MISION</h3>
+                    <p className="my-4">
+                        Nuestra misión es proporcionar a las empresas una asesoría laboral de alto nivel, basada en 
+                        la experiencia y el conocimiento profundo del Derecho Laboral y la Seguridad Social. 
+                        Nos dedicamos a prevenir y resolver conflictos laborales de manera estratégica y eficiente, 
+                        contribuyendo a la estabilidad y el éxito de nuestros clientes. Con un compromiso firme hacia la enseñanza y la interpretación del marco legal, 
+                        capacitamos a líderes y profesionales para una gestión sólida y ética del talento humano.
                     </p>
-            </div> 
-            
-    </section>
+                </blockquote>
+            </figure>
+
+            <figure className="flex flex-col justify-center items-center p-6 text-center md:p-12">
+                <blockquote className="mx-auto mb-2 max-w-2xl text-gray-500"> {/* Reducido más margen inferior */}
+                    <h3 className="text-lg font-semibold text-gray-600">VISION</h3>
+                    <p className="my-4">
+                        Ser reconocidos como el bufete líder en asesoría y soluciones laborales empresariales, distinguidos por 
+                        nuestra excelencia en la práctica del Derecho Laboral y nuestra capacidad para adaptarnos a las demandas
+                        de un entorno en constante cambio. Aspiramos a consolidarnos como referentes en la formación de profesionales
+                        en el ámbito laboral, promoviendo un entorno de justicia, integridad y colaboración que fortalezca las relaciones laborales en todos los niveles empresariales.
+                    </p>
+                </blockquote>
+            </figure>
+        </div>
+        {/* Texto final - Descripción */}
+    <div className="mx-auto p-6 max-w-screen-sm lg:mb-4"> {/* Reducido margen inferior de la descripción */}
+        <p className="font-light text-center text-gray-800 sm:text-xl dark:text-gray-400">
+            Somos un Bufete Jurídico constituido en el año de 1,990, dedicado a la Asesoría Laboral empresarial; 
+            a la Prevención y resolución de conflictos laborales, al estudio, enseñanza, 
+            interpretación y aplicación del Derecho Laboral y de la Seguridad Social; facilitamos la
+            capacitación o formación profesional en la gestión del talento humano.
+        </p>
+    </div> 
+    </div>
+
+    
+</section>
+
+
+
     <section className="pt-28  lg:pt-8">
         <div className="py-2 px-4 mx-auto max-w-screen-xl text-center lg:py-2 lg:px-6">
         <div className="text-center mb-12 lg:mt-10 ">
