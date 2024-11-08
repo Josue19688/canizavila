@@ -15,7 +15,7 @@ export const Header = () => {
 
   return (
     <nav className="fixed top-4 left-0 right-0 z-50 m-2">
-      <div className="text-neutral-600 font-bold text-lg  backdrop-blur-md max-w-7xl mx-auto px-4 py-1 flex justify-between items-center rounded-xl ">
+      <div className="text-neutral-500 font-sans text-xl  backdrop-blur-md max-w-7xl mx-auto px-4 py-1 flex justify-between items-center rounded-xl ">
         {/* <img src={logo} alt="logo" className="w-16 h-16" /> */}
 
         {/* CENTER: LINKS (HIDDEN  ON MOBILE) */}
@@ -23,7 +23,7 @@ export const Header = () => {
           <Link to='/' className="hover:text-orange-500">
             Inicio
           </Link>
-          <Link to='/nosotros' className="hover:text-neutral-200">
+          <Link to='/nosotros' className="hover:text-orange-500">
             Nosotros
           </Link>
           <Link to='/servicios' className="hover:text-orange-500">

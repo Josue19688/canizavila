@@ -67,10 +67,6 @@ const HOW_IT_WORKS_CONTENT = {
       ],
 };
 
-
-
-
-
 export const Cafecito = () => {
   return (
     <motion.section
