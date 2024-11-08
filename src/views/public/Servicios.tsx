@@ -1,7 +1,8 @@
 
 
 export const Servicios = () => {
+  
   return (
-    <div>Servicios</div>
-  )
-}
+    <><h1>Hola mundo</h1></>
+  );
+};

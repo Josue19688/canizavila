@@ -14,6 +14,7 @@
       "@/assets/*":["assets/*"],
       "@/constants/*":["constants/*"],
     },
+   
 
     /* Bundler mode */
     "moduleResolution": "Bundler",

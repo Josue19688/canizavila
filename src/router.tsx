@@ -13,7 +13,7 @@ import { Cafecito } from "./views/public/Cafecito";
 
 export default function Router() {
     return (
-        <BrowserRouter>
+        <BrowserRouter future={{ v7_relativeSplatPath: true }}>
             <Routes>
                 <Route element={<PublicLayout />} >
                     <Route path="/" element={<Home/>} index />
