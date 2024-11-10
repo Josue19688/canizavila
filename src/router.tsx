@@ -7,6 +7,13 @@ import { Servicios } from "./views/public/Servicios";
 import { Blog } from "./views/public/Blog";
 import { Cafecito } from "./views/public/Cafecito";
 
+import PrivateLayout from './layouts/PrivateLayout';
+import { Dashboard } from './views/private/Dashboard';
+import { CreateArticulo } from "./components/private/CreateArticulo";
+import { ArticulosAll } from "./components/private/ArticulosAll";
+import { CursosAll } from "./components/private/CursosAll";
+import { CreateCursos } from "./components/private/CreateCursos";
+
 
 
 
@@ -21,6 +28,13 @@ export default function Router() {
                     <Route path="/servicios" element={<Servicios/>} />
                     <Route path="/cafecito" element={<Cafecito/>} />
                     <Route path="/blog" element={<Blog/>} />
+                </Route>
+                <Route element={<PrivateLayout />} >
+                    <Route path="/private/dashboard" element={<Dashboard/>} index />
+                    <Route path="/private/articulosAll" element={<ArticulosAll/>}/>
+                    <Route path="/private/createArticulo" element={<CreateArticulo/>}/>
+                    <Route path="/private/cursosAll" element={<CursosAll/>}/>
+                    <Route path="/private/createCursos" element={<CreateCursos/>}/>
                 </Route>
             </Routes>
         </BrowserRouter>
