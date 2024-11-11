@@ -3,6 +3,7 @@ import { Navigate, Outlet } from "react-router-dom"
 import { Sidenav } from '../components/private/Sidenav';
 import { Nav } from '../components/private/Nav';
 import { userAuthStore } from "@/stores/auth/auth.store";
+import { Footer } from "@/components/private/Footer";
 
 export default function PrivateLayout() {
 
@@ -30,6 +31,7 @@ export default function PrivateLayout() {
               <div className="bg-white border border-gray-100 shadow-md shadow-black/5 p-4 rounded-md lg:col-span-3">
 
                 <Outlet />
+                <Footer/>
               </div>
             </div>
 

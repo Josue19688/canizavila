@@ -19,7 +19,12 @@ const ImagenComponent: React.FC<ImagenComponentProps> = ({ url }) => {
         <div>
             {status === 'pending' && <p>Cargando imagen...</p>}
             {status === 'completado' && imagenUrl && (
-                <img src={imagenUrl} alt="Imagen del artículo" width="300" />
+                <img 
+                src={imagenUrl} 
+                alt="Imagen del artículo" 
+                className="w-full max-w-lg mx-auto my-4 rounded-lg shadow-md object-cover"
+              />
+              
             )}
             {status === 'fallido' && <p>Error al cargar la imagen.</p>}
         </div>
