@@ -1,19 +1,24 @@
 import { useState, ChangeEvent, FormEvent, useEffect, useRef } from 'react';
 import Quill from 'quill';
 import 'quill/dist/quill.snow.css';
+import { useArticuloStore } from '@/stores/articulo/articulo.store';
+import { useNavigate } from 'react-router-dom';
 
 type FormErrors = {
   titulo?: string;
-  subtitulo?: string;
+  descripcion?: string;
   contenido?: string;
-  imagen?: string;
+  files?: string;
 };
 
 export const CreateArticulo = () => {
+  const navigate = useNavigate();
+  const createArticulo = useArticuloStore((state) => state.createArticulo);
+  
   const [titulo, setTitulo] = useState<string>('');
-  const [subtitulo, setSubtitulo] = useState<string>('');
+  const [descripcion, setDescripcion] = useState<string>('');
   const [contenido, setContenido] = useState<string>('');
-  const [imagen, setImagen] = useState<File | null>(null);
+  const [files, setFiles] = useState<File | null>(null);
   const [errores, setErrores] = useState<FormErrors>({});
 
   // Extiende el tipo de referencia para permitir propiedades personalizadas
@@ -51,32 +56,53 @@ export const CreateArticulo = () => {
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     if (name === 'titulo') setTitulo(value);
-    if (name === 'subtitulo') setSubtitulo(value);
+    if (name === 'descripcion') setDescripcion(value);
   };
 
   const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
-      setImagen(e.target.files[0]);
+      setFiles(e.target.files[0]);
     }
   };
 
   const validarFormulario = (): boolean => {
     const newErrores: FormErrors = {};
     if (!titulo) newErrores.titulo = 'El título es obligatorio';
-    if (!subtitulo) newErrores.subtitulo = 'El subtítulo es obligatorio';
+    if (!descripcion) newErrores.descripcion = 'La descripcion es obligatorio';
     if (!contenido) newErrores.contenido = 'El contenido es obligatorio';
-    if (imagen && !['image/jpeg', 'image/png', 'image/gif'].includes(imagen.type)) {
-      newErrores.imagen = 'El archivo debe ser una imagen (JPEG, PNG o GIF)';
+    if (files && !['image/jpeg', 'image/png', 'image/gif'].includes(files.type)) {
+      newErrores.files = 'El archivo debe ser una imagen (JPEG, PNG o GIF)';
     }
     setErrores(newErrores);
     return Object.keys(newErrores).length === 0;
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async(e: FormEvent) => {
     e.preventDefault();
     if (validarFormulario()) {
+        // Crear una instancia de FormData y agregar los datos
+        const formData = new FormData();
+        formData.append('titulo', titulo);
+        formData.append('descripcion', descripcion);
+        formData.append('contenido', contenido);
+        formData.append('modelo','articulo');
+        
+        if (files) {
+            formData.append('files', files); // Solo agregamos si existe una imagen seleccionada
+        }
+
+        try {
+           // Llamamos a la función de creación de artículo desde la tienda
+           await createArticulo(formData);
+           navigate('/private/articulosAll')
+        } catch (error) {
+          throw new Error('Error al crear el articulo!')
+          console.log(`Error al crear el registro : ${error}`)
+        }
+       
+
       alert('Formulario enviado correctamente');
-      console.log({ titulo, subtitulo, contenido, imagen });
+      console.log({ titulo, descripcion, contenido, files });
     }
   };
 
@@ -96,16 +122,16 @@ export const CreateArticulo = () => {
       </div>
 
       <div className="mb-4">
-        <label htmlFor="subtitulo" className="block text-sm font-semibold text-gray-700">Subtítulo</label>
+        <label htmlFor="descripcion" className="block text-sm font-semibold text-gray-700">Descripción</label>
         <input
           type="text"
-          id="subtitulo"
-          name="subtitulo"
-          value={subtitulo}
+          id="descripcion"
+          name="descripcion"
+          value={descripcion}
           onChange={handleChange}
           className="mt-2 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
-        {errores.subtitulo && <p className="text-red-500 text-xs mt-1">{errores.subtitulo}</p>}
+        {errores.descripcion && <p className="text-red-500 text-xs mt-1">{errores.descripcion}</p>}
       </div>
 
       <div className="mb-4">
@@ -122,12 +148,12 @@ export const CreateArticulo = () => {
         <input
           type="file"
           id="imagen"
-          name="imagen"
+          name="files"
           accept="image/jpeg, image/png, image/gif"
           onChange={handleImageChange}
           className="mt-2 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
-        {errores.imagen && <p className="text-red-500 text-xs mt-1">{errores.imagen}</p>}
+        {errores.files && <p className="text-red-500 text-xs mt-1">{errores.files}</p>}
       </div>
 
       <div className="flex justify-center">

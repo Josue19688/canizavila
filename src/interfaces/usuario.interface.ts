@@ -9,5 +9,5 @@ export interface User {
     nombre:   string;
     activo:   boolean;
     roles:    string[];
-    imagenes: any[];
+    imagenes: string[];
 }

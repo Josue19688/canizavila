@@ -38,9 +38,9 @@ export const Header = () => {
         </div>
         {/* RIGHT: BUTTTONS ON MOBILE */}
         <div className="hidden md:flex space-x-4 items-center">
-          <a href="#" className="border border-orange-500 text-neutral-500 py-1 px-4 rounded-lg hover:bg-neutral-400 hover:text-white transition">
+          <Link to={'/auth/login'} className="border border-orange-500 text-neutral-500 py-1 px-4 rounded-lg hover:bg-neutral-400 hover:text-white transition">
             Login
-          </a>
+          </Link>
         </div>
 
          {/* HAMBURGER ICON FOR MOBILE */}
@@ -75,9 +75,9 @@ export const Header = () => {
               <Link to='/blog' className="hover:text-neutral-200">
                Blog
               </Link>
-              <a href="#" className="border border-neutral-700 text-center text-white py-2 px-4 rounded-lg hover:bg-neutral-700 transition">
+              <Link to={'/auth/login'} className="border border-neutral-700 text-center text-white py-2 px-4 rounded-lg hover:bg-neutral-700 transition">
             Login
-          </a>
+          </Link>
             </div>
           </div>
         ) 

@@ -1,9 +1,24 @@
 
-import { Outlet } from "react-router-dom"
+import { Navigate, Outlet } from "react-router-dom"
 import { Sidenav } from '../components/private/Sidenav';
 import { Nav } from '../components/private/Nav';
+import { userAuthStore } from "@/stores/auth/auth.store";
 
 export default function PrivateLayout() {
+
+  const authStatus = userAuthStore(state=>state.status);
+  const checkAuthStatus = userAuthStore(state=>state.checkStatus);
+
+  if(authStatus==='pending'){
+    checkAuthStatus();
+    return <>Loading............</>
+  }
+
+  if(authStatus==='unautorized'){
+    return <Navigate to={'/auth/login'}/>
+  }
+
+
   return (
     <>
       <div className="text-gray-800 font-inter">

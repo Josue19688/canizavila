@@ -13,6 +13,8 @@ import { CreateArticulo } from "./components/private/CreateArticulo";
 import { ArticulosAll } from "./components/private/ArticulosAll";
 import { CursosAll } from "./components/private/CursosAll";
 import { CreateCursos } from "./components/private/CreateCursos";
+import { Login } from "./views/public/Login";
+import AuthLayout from "./layouts/AuthLayout";
 
 
 
@@ -28,6 +30,10 @@ export default function Router() {
                     <Route path="/servicios" element={<Servicios/>} />
                     <Route path="/cafecito" element={<Cafecito/>} />
                     <Route path="/blog" element={<Blog/>} />
+                    <Route path="/login" element={<Login/>} />
+                </Route>
+                <Route element={<AuthLayout />} >
+                    <Route path="/auth/login" element={<Login/>} index/>
                 </Route>
                 <Route element={<PrivateLayout />} >
                     <Route path="/private/dashboard" element={<Dashboard/>} index />

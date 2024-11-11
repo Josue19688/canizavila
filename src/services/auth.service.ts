@@ -1,24 +1,36 @@
-import { backendApi } from "api/backend-api";
+import { backendApi } from "@/api/backend-api";
 import { AxiosError } from "axios";
-import { AuthResponse } from "interfaces/usuario.interface";
+import { AuthResponse } from "@/interfaces/usuario.interface";
 
 
 
 
 export class AuthService{
-    static login = async(correo:string, password:string)=>{
+    static login = async(correo:string, password:string):Promise<AuthResponse>=>{
         try {
-            const respuesta = backendApi.post<AuthResponse>('/auth/login',{correo, password});
-            console.log(respuesta)
-            return respuesta
+            const respuesta = await  backendApi.post<AuthResponse>('/auth/login',{correo, password});
+            
+            return respuesta.data
         } catch (error) {
             if(error instanceof AxiosError){
-                console.log(error.response?.data)
+               
                 throw new Error(error.response?.data)
             }
 
-            console.log(error)
+           
             throw new Error('Unable to login')
         }
     }
+
+    static checkStatus = async():Promise<AuthResponse>=>{
+        try {
+            const {data} = await backendApi.get('/auth/status');
+            return data;
+        } catch (error) {
+           
+            throw new Error('Unautorized to login')
+        }
+    }
+
+
 }

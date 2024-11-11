@@ -1,10 +1,13 @@
 import { useState } from 'react';
-import { RiMenu3Line, RiBaiduFill, RiPresentationFill,  RiArrowDownWideFill, RiDraftFill, RiBarChart2Fill } from '@remixicon/react';
+import { RiMenu3Line,  RiPresentationFill,  RiArrowDownWideFill, RiDraftFill, RiBarChart2Fill, RiLogoutBoxFill } from '@remixicon/react';
 import { Link } from 'react-router-dom';
+import { userAuthStore } from '@/stores/auth/auth.store';
 
 
 
 export const Sidenav = () => {
+  const logoutUser = userAuthStore(state=>state.logoutUser);
+  
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
@@ -29,11 +32,11 @@ export const Sidenav = () => {
           isOpen ? 'transform-none' : '-translate-x-full'
         } md:translate-x-0`}
       >
-        <p className="flex items-center pb-4 border-b border-b-gray-800">
+        <div className="flex items-center pb-4 border-b border-b-gray-800">
           <h2 className="font-bold text-2xl">
             Caniz <span className="bg-[#f84525] text-white px-2 rounded-md">Avila</span>
           </h2>
-        </p>
+        </div>
 
         <ul className="mt-4">
           <span className="text-gray-400 font-bold">ADMIN</span>
@@ -98,15 +101,13 @@ export const Sidenav = () => {
             </ul>
           </li>
 
-          <span className="text-gray-400 font-bold">PERSONAL</span>
+          <span className="text-gray-400 font-bold">System</span>
           <li className="mb-1 group">
-            <p className="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md">
-              <RiBaiduFill className="mr-3 text-lg" />
-              <span className="text-sm">Notifications</span>
-              <span className="md:block px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-red-600 bg-red-200 rounded-full">
-                5
-              </span>
-            </p>
+            <a onClick={logoutUser} className="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md">
+              <RiLogoutBoxFill className="mr-3 text-lg" />
+              <span className="text-sm">Salir</span>
+              
+            </a>
           </li>
         </ul>
       </div>
