@@ -24,6 +24,7 @@ interface ArticuloState {
     createArticulo: (data: FormData) => Promise<void>;
     fetchImagen: (imagenUrl: string) => Promise<void>;
     getArticulo:(id:string)=>Promise<void>;
+    clearArticulo:()=>Promise<void>;
 }
 
 const storeArticulo: StateCreator<ArticuloState> = (set)=>({
@@ -76,6 +77,9 @@ const storeArticulo: StateCreator<ArticuloState> = (set)=>({
             console.error('Error al obtener el articulo:', error);
             set({ status: 'fallido', articulo: null });
         }
+    },
+    clearArticulo:async()=>{
+        set({ status: 'pending', articulo: null });
     }
 
 })

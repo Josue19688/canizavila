@@ -15,6 +15,7 @@ import { CursosAll } from "./components/private/CursosAll";
 import { CreateCursos } from "./components/private/CreateCursos";
 import { Login } from "./views/public/Login";
 import AuthLayout from "./layouts/AuthLayout";
+import { ArticuloDetails } from "./components/private/ArticuloDetails";
 
 
 
@@ -38,6 +39,7 @@ export default function Router() {
                 <Route element={<PrivateLayout />} >
                     <Route path="/private/dashboard" element={<Dashboard/>} index />
                     <Route path="/private/articulosAll" element={<ArticulosAll/>}/>
+                    <Route path="/private/articulo/:id" element={<ArticuloDetails/>}/>
                     <Route path="/private/createArticulo" element={<CreateArticulo/>}/>
                     <Route path="/private/cursosAll" element={<CursosAll/>}/>
                     <Route path="/private/createCursos" element={<CreateCursos/>}/>
